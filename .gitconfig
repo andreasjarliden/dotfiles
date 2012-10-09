@@ -17,3 +17,4 @@
 	l = "!source ~/.githelpers && pretty_git_log"
 	d = diff
 	dc = diff --cached
+	ci = commit --verbose
