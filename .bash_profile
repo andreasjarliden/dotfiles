@@ -51,8 +51,8 @@ function parse_git_branch {
             branch="NO BRANCH"
         fi
 
-        echo " ( ${branch} ${state}${remote})"
+        echo "(${branch}${state}${remote})"
     fi
     return
 }
-export PS1="\u@\h : \w \$(parse_git_branch) $ "
+export PS1="\h:\w\$(parse_git_branch)$ "
