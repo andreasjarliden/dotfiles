@@ -1,6 +1,6 @@
 #export SVN=svn://localhost
 export SVN=file:///Users/andreas/Library/svnrepos
-export EDITOR='mate -w'
+export EDITOR='vim'
 
 export TRAC=~/Library/Trac/Cal
 export EC2=ec2-user@ec2-79-125-68-70.eu-west-1.compute.amazonaws.com
