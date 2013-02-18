@@ -56,3 +56,12 @@ function parse_git_branch {
     return
 }
 export PS1="\h:\w\$(parse_git_branch)$ "
+
+##
+# Your previous /Users/andreas/.bash_profile file was backed up as /Users/andreas/.bash_profile.macports-saved_2013-01-22_at_12:52:54
+##
+
+# MacPorts Installer addition on 2013-01-22_at_12:52:54: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
