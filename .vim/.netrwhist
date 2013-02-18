@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/usr/share/vim/vim73/doc'
-let g:netrw_dirhist_2='/Users/andreas'
-let g:netrw_dirhist_3='/Users/andreas/workingfolder/caliander'
