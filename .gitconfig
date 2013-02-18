@@ -6,6 +6,8 @@
 [core]
 	editor = vim +startinsert
 	excludesfile = /Users/andreas/.gitignore_global
+[rebase]
+	autosquash = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
