@@ -23,3 +23,4 @@
 	d = diff
 	dc = diff --cached
 	ci = commit --verbose
+	co = checkout
