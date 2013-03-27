@@ -25,4 +25,14 @@ endif
 
 set autowrite " Automatically save before building
 set makeprg=xcodebuild
-nmap <F1> :make -workspace Caliander.xcworkspace -scheme AcceptanceTests<CR>
+set grepprg=ack
+nmap <Leader>b :make -workspace Caliander.xcworkspace -scheme AcceptanceTests<CR>
+nmap <Leader>u :make -workspace Caliander.xcworkspace -scheme AcceptanceTests TEST_AFTER_BUILD=YES<CR>
+nmap <Leader>m :make -workspace Caliander.xcworkspace -scheme "Caliander App" test<CR>
+nmap <Leader>d <C-]>
+
+" Split navigation
+noremap <C-h> <C-w><C-h>
+noremap <C-j> <C-w><C-j>
+noremap <C-k> <C-w><C-k>
+noremap <C-l> <C-w><C-l>
