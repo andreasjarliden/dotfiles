@@ -11,6 +11,9 @@ set showcmd " Show partial commands
 set laststatus=2 " Display status line even if only one window
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
 set nobackup
+set noswapfile
+au CursorHold * checktime " Check if file changed on idle
+set updatetime=2000 " Reduce the updatetime from 4s to 2s which affect checktime above
 hi CursorLine ctermbg=white guibg=white
 colorscheme solarized
 set hls is
