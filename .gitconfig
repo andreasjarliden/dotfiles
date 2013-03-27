@@ -6,6 +6,7 @@
 [core]
 	editor = vim 
 	excludesfile = /Users/andreas/.gitignore_global
+	trustctime = false
 [rebase]
 	autosquash = true
 [difftool "sourcetree"]
