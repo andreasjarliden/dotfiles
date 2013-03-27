@@ -1,4 +1,6 @@
+let mapleader = 'ö'
 call pathogen#infect()
+call pathogen#helptags()
 set nocompatible
 syntax enable
 set background=dark
