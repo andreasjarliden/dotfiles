@@ -37,3 +37,7 @@ noremap <C-h> <C-w><C-h>
 noremap <C-j> <C-w><C-j>
 noremap <C-k> <C-w><C-k>
 noremap <C-l> <C-w><C-l>
+
+" Show invisible characters
+set list
+set listchars=tab:»·,trail:·
