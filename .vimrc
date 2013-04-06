@@ -45,3 +45,6 @@ set listchars=tab:»·,trail:·
 " Open .vimrc in split
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Current objective C method including newline below
+onoremap am :execute ":normal ?^[+-]\rv/^}/+1\r"<cr>
