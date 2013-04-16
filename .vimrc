@@ -24,6 +24,11 @@ if has("autocmd")
 	autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
 endif
 
+augroup alternateobjc
+	au!
+	au BufEnter *.h let b:fswitchdst  = 'm,mm'
+augroup END
+
 set autowrite " Automatically save before building
 set makeprg=xcodebuild
 set grepprg=ack
