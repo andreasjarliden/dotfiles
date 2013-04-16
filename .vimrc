@@ -15,7 +15,7 @@ set noswapfile
 au CursorHold * checktime " Check if file changed on idle
 set updatetime=2000 " Reduce the updatetime from 4s to 2s which affect checktime above
 hi CursorLine ctermbg=white guibg=white
-colorscheme solarized
+colorscheme grb256
 set hls is
 highlight Search gui=underline term=underline
 if has("autocmd")
