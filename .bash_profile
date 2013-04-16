@@ -1,5 +1,6 @@
-#export SVN=svn://localhost
-export SVN=file:///Users/andreas/Library/svnrepos
+export CLICOLOR
+
+export SVN=svn://localhost
 export EDITOR='vim'
 
 export TRAC=~/Library/Trac/Cal
