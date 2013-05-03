@@ -30,12 +30,12 @@ augroup alternateobjc
 augroup END
 
 set autowrite " Automatically save before building
-set makeprg=xcodebuild
 set grepprg=ack
-nmap <Leader>b :make -workspace Caliander.xcworkspace -scheme AcceptanceTests<CR>
-nmap <Leader>u :make -workspace Caliander.xcworkspace -scheme AcceptanceTests TEST_AFTER_BUILD=YES<CR>
-nmap <Leader>m :make -workspace Caliander.xcworkspace -scheme "Caliander App" test<CR>
 nmap <Leader>d <C-]>
+
+" Use kk as <Esc> in insert mode
+inoremap kk <Esc>
+inoremap <Esc> <Nop>
 
 " Split navigation
 noremap <C-h> <C-w><C-h>
@@ -43,13 +43,53 @@ noremap <C-j> <C-w><C-j>
 noremap <C-k> <C-w><C-k>
 noremap <C-l> <C-w><C-l>
 
+" Alternate File (Header <> Impl file)
+noremap <leader>a :FSHere<cr>
+
+" Previous buffer
+nnoremap <leader>p :b#<cr>
+
 " Show invisible characters
 set list
 set listchars=tab:»·,trail:·
 
+" Recompile
+nnoremap <leader>r :wa<cr>:Make<Up><cr>
+" Save All
+nnoremap <leader>s :wa<cr>
 " Open .vimrc in split
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
+" Source .vimrc
+nnoremap <leader>sv :wa<cr>:source $MYVIMRC<cr>
+nnoremap <leader>es :vsplit ~/Documents/toolSharpening.txt<cr>
+" Edit TODO in split
+nnoremap <leader>et :vsplit TODO<cr>
 
 " Current objective C method including newline below
 onoremap am :execute ":normal ?^[+-]\rv/^}/+1\r"<cr>
+" Current objective C @int../imp to @end block
+onoremap ai :execute ":normal ?^@i\rv/^@end\r"<cr>
+
+" Current block between #, e.g. #if - #endif
+onoremap a# :execute ":normal ?^#\rV/^#\r"<cr>
+
+:function! ObjCCurrentClass()
+:	execute "normal! ?@imple\<cr>"
+:	normal! "myy
+:	return @m
+:endfunction
+
+noremap <leader>cr :call ObjCCurrentClass()<cr>
+
+iabbrev aia alloc] init] autorelease]
+
+" Ignore lines that looks like they start with a year
+" set errorformat^=%-G20%.%.-%.%#
+" Ignore lines starting with Test Suite
+" set errorformat^=%-GTest\ Suite%s
+"set errorformat=%+G%.%#bar%.%#
+
+" Use a restrictive errorformat since it easily thinks that times (e.g.
+" 20:00:00) is a filename:line:column otherwise.
+set errorformat=%f:%l:%c:\ error:\ %m,%f:%l:\ error:\ %m,%f:%l:%c:\ fatal\ error:\ %m
+
