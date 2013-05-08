@@ -18,11 +18,13 @@ hi CursorLine ctermbg=white guibg=white
 colorscheme grb256
 set hls is
 highlight Search gui=underline term=underline
-if has("autocmd")
+augroup tabsettings
+	au!
 	filetype plugin indent on
 	autocmd FileType objc setlocal ts=4 sts=4 sw=4 expandtab
 	autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
-endif
+	autocmd FileType html setlocal ts=2 sw=2 expandtab
+augroup END
 
 augroup alternateobjc
 	au!
