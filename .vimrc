@@ -29,8 +29,8 @@ augroup END
 augroup alternateobjc
 	au!
 	au BufEnter *.h let b:fswitchdst  = 'm,mm'
-	au BufNewFile *.h set filetype=objc
-	au BufNewFile *.m set filetype=objc
+	au BufNewFile,BufRead *.h set filetype=objc
+	au BufNewFile,BufRead *.m set filetype=objc
 augroup END
 
 set autowrite " Automatically save before building
