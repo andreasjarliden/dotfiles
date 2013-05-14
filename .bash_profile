@@ -1,4 +1,4 @@
-export CLICOLOR
+export CLICOLOR=1
 
 export SVN=svn://localhost
 export EDITOR='vim'
