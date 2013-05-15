@@ -61,3 +61,8 @@ export PS1="\h:\w\$(parse_git_branch)$ "
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH=$PATH:~/bin
 
+alias ci='git ci'
+alias f='fg'
+alias l='ls'
+alias s='git s'
+alias g='git'
