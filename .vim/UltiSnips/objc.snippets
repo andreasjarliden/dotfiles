@@ -1,0 +1,38 @@
+snippet impl "@implementation"
+@implementation $1
+$0
+@end
+endsnippet
+
+snippet inter "@interface"
+@interface $1 : NSObject
+$0
+@end
+endsnippet
+
+snippet ii "@interface and @implementation"
+@interface $1 : NSObject
+@end
+@implementation $1
+$0
+@end
+endsnippet
+
+snippet marr "NSMutableArray"
+NSMutableArray
+endsnippet
+
+snippet testcase "Test Case"
+@interface Test$1 : SenTestCase
+@end
+@implementation Test$1
+$0
+@end
+endsnippet
+
+snippet dealloc "dealloc method"
+- (void)dealloc {
+    $0
+    [super dealloc];
+}
+endsnippet
