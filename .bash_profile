@@ -1,3 +1,4 @@
+#!/bin/sh
 export CLICOLOR=1
 
 export SVN=svn://localhost
@@ -5,7 +6,7 @@ export EDITOR='vim'
 
 export TRAC=~/Library/Trac/Cal
 export EC2=ec2-user@ec2-79-125-68-70.eu-west-1.compute.amazonaws.com
-export LM_STAGING="/Users/andreas/workingfolder/gitlmwebsite"
+export LM_STAGING="/Users/andreas/Dropbox/working/gitlmwebsite"
 
 function parse_git_branch {
     git rev-parse --git-dir > /dev/null 2>&1
@@ -62,7 +63,12 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH=$PATH:~/bin
 
 alias ci='git ci'
+alias co='git co'
 alias f='fg'
 alias l='ls'
 alias s='git s'
 alias g='git'
+alias a='git add'
+alias w='pushd ~/wc'
+alias ap='git add -p'
+alias AMEND='git ci --amend -C HEAD'

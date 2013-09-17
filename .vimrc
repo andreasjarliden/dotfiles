@@ -21,7 +21,9 @@ highlight Search gui=underline term=underline
 augroup tabsettings
 	au!
 	filetype plugin indent on
+	autocmd FileType c setlocal ts=4 sts=4 sw=4 expandtab
 	autocmd FileType objc setlocal ts=4 sts=4 sw=4 expandtab
+	autocmd FileType objcpp setlocal ts=4 sts=4 sw=4 expandtab
 	autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
 	autocmd FileType html setlocal ts=2 sw=2 expandtab
 augroup END
@@ -29,16 +31,27 @@ augroup END
 augroup alternateobjc
 	au!
 	au BufEnter *.h let b:fswitchdst  = 'm,mm'
+	au BufEnter *.mm let b:fswitchdst  = 'h'
 	au BufNewFile,BufRead *.h set filetype=objc
+	au BufNewFile,BufRead *.pch set filetype=objc
 	au BufNewFile,BufRead *.m set filetype=objc
+augroup END
+
+augroup arduino
+	au BufNewFile,BufRead *.ino set filetype=c
 augroup END
 
 set autowrite " Automatically save before building
 set grepprg=ack
 nmap <Leader>d <C-]>
 
-" Use kk as <Esc> in insert mode
+"
+" Customizations of stock vim
+"
+
+" Use kk or as <Esc> in insert mode
 inoremap kk <Esc>
+inoremap å <Esc>
 inoremap <Esc> <Nop>
 
 " Split navigation
@@ -46,6 +59,12 @@ noremap <C-h> <C-w><C-h>
 noremap <C-j> <C-w><C-j>
 noremap <C-k> <C-w><C-k>
 noremap <C-l> <C-w><C-l>
+
+vnoremap . :normal .<cr>
+
+"
+" Other
+"
 
 " Alternate File (Header <> Impl file)
 noremap <leader>a :FSHere<cr>
@@ -61,18 +80,31 @@ set listchars=tab:»·,trail:·
 nnoremap <leader>r :wa<cr>:Make<Up><cr>
 " Save All
 nnoremap <leader>s :wa<cr>
+
+" Flush CommandT
+nnoremap <leader><leader>t :CommandTFlush<cr>
+
+" Update tags file
+nnoremap <leader>ut :make tags<cr>
+
+"
+" Quickly open files
+"
 " Open .vimrc in split
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " Source .vimrc
 nnoremap <leader>sv :wa<cr>:source $MYVIMRC<cr>
+" Open tool sharpening list
 nnoremap <leader>es :vsplit ~/Documents/toolSharpening.txt<cr>
 " Edit TODO in split
 nnoremap <leader>et :vsplit TODO<cr>
+" Edit .bash_profile
+nnoremap <leader>eb :vsplit ~/.bash_profile<cr>
 
 " Current objective C method including newline below
 onoremap am :execute ":normal ?^[+-]\rv/^}/+1\r"<cr>
 " Current objective C @int../imp to @end block
-onoremap ai :execute ":normal ?^@i\rv/^@end\r"<cr>
+onoremap ai :execute ":normal ?^@i\rV/^@end\r"<cr>
 
 " Current block between #, e.g. #if - #endif
 onoremap a# :execute ":normal ?^#\rV/^#\r"<cr>
@@ -84,6 +116,15 @@ onoremap a# :execute ":normal ?^#\rV/^#\r"<cr>
 :endfunction
 
 noremap <leader>cr :call ObjCCurrentClass()<cr>
+
+" Change ending { into ;
+nnoremap <leader>ä :execute ":s/ \*{/;"<cr>
+
+" Add #import for word under cursor
+nnoremap <leader>i mzyiwggO#import "<esc>pa.h"<esc>`z
+
+" Surround visual selection with #if 0 #endif
+nnoremap gc# '<O#if 0<esc>'>oendif<esc>
 
 iabbrev aia alloc] init] autorelease]
 

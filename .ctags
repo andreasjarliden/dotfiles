@@ -6,3 +6,4 @@
 --regex-objc=/^[[:space:]]*\@property[[:space:]]+.*[[:space:]]+\*?(.*);$/\1/p,property/
 --regex-objc=/^[[:space:]]*\@implementation[[:space:]]+(.*)$/\1/c,class/
 --regex-objc=/^[[:space:]]*\@interface[[:space:]]+(.*)[[:space:]]+:.*/\1/i,interface/
+--regex-objc=/^[[:space:]]*\@protocol[[:space:]]+(.+)$/\1/i,interface/
