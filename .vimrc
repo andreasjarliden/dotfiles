@@ -186,7 +186,11 @@ function! <SID>SynStack()
 	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
-" Dependent stuff
+" Source host specific vimrc file
+let hostfile=expand('~/dotfiles/vimrc-' . hostname())
+if filereadable(hostfile)
+	execute 'source ' . hostfile
+endif
 
 " Open tool sharpening list
 " nnoremap <leader>es :vsplit ~/Documents/toolSharpening.txt<cr>
