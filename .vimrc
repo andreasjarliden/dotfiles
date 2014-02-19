@@ -6,15 +6,17 @@ syntax enable
 set background=dark
 set cursorline
 set number
+set relativenumber
 set hidden
 set showcmd " Show partial commands
+set scrolloff=3
 set laststatus=2 " Display status line even if only one window
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
 set nobackup
 set noswapfile
 au CursorHold * checktime " Check if file changed on idle
 set updatetime=2000 " Reduce the updatetime from 4s to 2s which affect checktime above
-hi CursorLine ctermbg=white guibg=white
+hi CursorLine ctermbg=235  guibg=white cterm=NONE
 colorscheme grb256
 set hls is
 highlight Search gui=underline term=underline
@@ -22,13 +24,31 @@ augroup tabsettings
 	au!
 	filetype plugin indent on
 	autocmd FileType c setlocal ts=4 sts=4 sw=4 expandtab
+	autocmd FileType cpp setlocal ts=2 sts=2 sw=2 expandtab
 	autocmd FileType objc setlocal ts=4 sts=4 sw=4 expandtab
 	autocmd FileType objcpp setlocal ts=4 sts=4 sw=4 expandtab
 	autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
 	autocmd FileType html setlocal ts=2 sw=2 expandtab
+	autocmd FileType matlab setlocal commentstring=\%%s ts=4 sts=4 sw=4 expandtab
 augroup END
 
-augroup alternateobjc
+augroup filetypes
+	au!
+	au BufEnter *.h let b:fswitchdst  = 'cpp,t'
+	au BufEnter *.t let b:fswitchdst  = 'h'
+	au BufNewFile,BufRead *.t set filetype=objc
+augroup END
+
+" augroup alternateobjc
+" 	au!
+" 	au BufEnter *.h let b:fswitchdst  = 'm,mm'
+" 	au BufEnter *.mm let b:fswitchdst  = 'h'
+" 	au BufNewFile,BufRead *.h set filetype=objc
+" 	au BufNewFile,BufRead *.pch set filetype=objc
+" 	au BufNewFile,BufRead *.m set filetype=objc
+" augroup END
+
+augroup matlab
 	au!
 	au BufEnter *.h let b:fswitchdst  = 'm,mm'
 	au BufEnter *.mm let b:fswitchdst  = 'h'
@@ -53,6 +73,8 @@ nmap <Leader>d <C-]>
 inoremap kk <Esc>
 inoremap å <Esc>
 inoremap <Esc> <Nop>
+inoremap <C-\> <Esc>:wq<cr>
+nnoremap <C-\> :wq<cr>
 
 " Split navigation
 noremap <C-h> <C-w><C-h>
@@ -81,8 +103,28 @@ nnoremap <leader>r :wa<cr>:Make<Up><cr>
 " Save All
 nnoremap <leader>s :wa<cr>
 
-" Flush CommandT
-nnoremap <leader><leader>t :CommandTFlush<cr>
+" Run a given vim command on the results of fuzzy selecting from a given shell
+" command. See usage below.
+function! SelectaCommand(choice_command, selecta_args, vim_command)
+	try
+		silent let selection = system(a:choice_command . " | selecta " . a:selecta_args)
+	catch /Vim:Interrupt/
+" Swallow the ^C so that the redraw below
+" happens; otherwise there will be
+" leftovers from selecta on the screen
+		redraw!
+		return
+	endtry
+	redraw!
+	exec a:vim_command . " " . selection
+endfunction
+
+" Find all files in all non-dot directories starting in the working directory.
+" Fuzzy select one of those.  Open the selected file with :e.
+nnoremap <leader>f :call SelectaCommand("find * -type f", "", ":e")<cr>
+
+" Fuzzy Recursive file search on <leader>t
+" nnoremap <leader>t :<C-u>Unite -start-insert file_rec<CR>
 
 " Update tags file
 nnoremap <leader>ut :make tags<cr>
@@ -94,12 +136,10 @@ nnoremap <leader>ut :make tags<cr>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " Source .vimrc
 nnoremap <leader>sv :wa<cr>:source $MYVIMRC<cr>
-" Open tool sharpening list
-nnoremap <leader>es :vsplit ~/Documents/toolSharpening.txt<cr>
 " Edit TODO in split
 nnoremap <leader>et :vsplit TODO<cr>
-" Edit .bash_profile
-nnoremap <leader>eb :vsplit ~/.bash_profile<cr>
+" Edit common_startup
+nnoremap <leader>eb :vsplit ~/dotfiles/common_startup<cr>
 
 " Current objective C method including newline below
 onoremap am :execute ":normal ?^[+-]\rv/^}/+1\r"<cr>
@@ -136,5 +176,20 @@ iabbrev aia alloc] init] autorelease]
 
 " Use a restrictive errorformat since it easily thinks that times (e.g.
 " 20:00:00) is a filename:line:column otherwise.
-set errorformat=%f:%l:%c:\ error:\ %m,%f:%l:\ error:\ %m,%f:%l:%c:\ fatal\ error:\ %m
+set errorformat=%f(%l):\ %trror:\ %m,%f(%l):\ %tarning:\ %m,%f:%l:%c:\ %tarning:\ %m,%f:%l:%c:\ error:\ %m,%f:%l:\ error:\ %m,%f:%l:%c:\ fatal\ error:\ %m
 
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+	if !exists("*synstack")
+		return
+	endif
+	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+" Dependent stuff
+
+" Open tool sharpening list
+" nnoremap <leader>es :vsplit ~/Documents/toolSharpening.txt<cr>
+nnoremap <leader>es :vsplit ~/docs/toolSharpening.txt<cr>
+" Edit work_startup
+nnoremap <leader>ew :vsplit ~/dotfiles/work_startup<cr>
