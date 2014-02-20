@@ -6,3 +6,5 @@ alias cu="pushd /media/ANDREAS\ USB"
 alias cr='pushd ~/running'
 alias w='pushd ~/tb'
 alias ld8='LD_LIBRARY_PATH=/opt/gcc-4.8.1/lib64:$LD_LIBRARY_PATH '
+
+source "$HOME/dotfiles/common_startup"
