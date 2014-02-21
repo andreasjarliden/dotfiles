@@ -1,5 +1,8 @@
 #!/bin/sh -x
 
+# Enable 256 colors
+export TERM=xterm-256color
+
 alias matlab='LD_PRELOAD=/opt/gcc-4.8.1/lib64/libstdc++.so /opt/matlab/R2013a/bin/matlab'
 alias ce="pushd ~/working/esp/branches/Pj119_reconstruction_p3"
 alias cu="pushd /media/ANDREAS\ USB"

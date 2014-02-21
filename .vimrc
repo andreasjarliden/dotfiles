@@ -1,6 +1,12 @@
-let mapleader = 'ö'
 call pathogen#infect()
 call pathogen#helptags()
+"
+" Source host specific vimrc file
+let hostfile=expand('~/dotfiles/vimrc-' . hostname())
+if filereadable(hostfile)
+	execute 'source ' . hostfile
+endif
+
 set nocompatible
 syntax enable
 set background=dark
@@ -20,6 +26,7 @@ hi CursorLine ctermbg=235  guibg=white cterm=NONE
 colorscheme grb256
 set hls is
 highlight Search gui=underline term=underline
+
 augroup tabsettings
 	au!
 	filetype plugin indent on
@@ -36,25 +43,7 @@ augroup filetypes
 	au!
 	au BufEnter *.h let b:fswitchdst  = 'cpp,t'
 	au BufEnter *.t let b:fswitchdst  = 'h'
-	au BufNewFile,BufRead *.t set filetype=objc
-augroup END
-
-" augroup alternateobjc
-" 	au!
-" 	au BufEnter *.h let b:fswitchdst  = 'm,mm'
-" 	au BufEnter *.mm let b:fswitchdst  = 'h'
-" 	au BufNewFile,BufRead *.h set filetype=objc
-" 	au BufNewFile,BufRead *.pch set filetype=objc
-" 	au BufNewFile,BufRead *.m set filetype=objc
-" augroup END
-
-augroup matlab
-	au!
-	au BufEnter *.h let b:fswitchdst  = 'm,mm'
-	au BufEnter *.mm let b:fswitchdst  = 'h'
-	au BufNewFile,BufRead *.h set filetype=objc
-	au BufNewFile,BufRead *.pch set filetype=objc
-	au BufNewFile,BufRead *.m set filetype=objc
+	au BufNewFile,BufRead *.t set filetype=cpp
 augroup END
 
 augroup arduino
@@ -186,11 +175,6 @@ function! <SID>SynStack()
 	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
-" Source host specific vimrc file
-let hostfile=expand('~/dotfiles/vimrc-' . hostname())
-if filereadable(hostfile)
-	execute 'source ' . hostfile
-endif
 
 " Open tool sharpening list
 " nnoremap <leader>es :vsplit ~/Documents/toolSharpening.txt<cr>
