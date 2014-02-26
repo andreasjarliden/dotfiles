@@ -7,7 +7,9 @@ alias matlab='LD_PRELOAD=/opt/gcc-4.8.1/lib64/libstdc++.so /opt/matlab/R2013a/bi
 alias ce="pushd ~/working/esp/branches/Pj119_reconstruction_p3"
 alias cu="pushd /media/ANDREAS\ USB"
 alias cr='pushd ~/running'
-alias w='pushd ~/tb'
+alias w='pushd ~/working'
 alias ld8='LD_LIBRARY_PATH=/opt/gcc-4.8.1/lib64:$LD_LIBRARY_PATH '
+alias rebase='git svn rebase'
+alias dcommit='git svn dcommit'
 
 source "$HOME/dotfiles/common_startup"
