@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/sh
 
 export CLICOLOR=1
 export EDITOR='vim'
@@ -75,3 +75,6 @@ reset="\e[0m"
 # export PS1="\h:\w\$(parse_git_branch)$ "
 export PS1="\h:\W $green$bold$ $reset"
 
+# Source host specific startup file
+DIRNAME="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+. "$DIRNAME"/common_startup_`hostname`
