@@ -57,5 +57,6 @@ reset="\e[0m"
 export PS1="\h:\W $green$bold$ $reset"
 
 # Source host specific startup file
-DIRNAME="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-. "$DIRNAME"/common_startup_`hostname`
+. ~/dotfiles/common_startup
+# DIRNAME="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# . "$DIRNAME"/common_startup_`hostname`

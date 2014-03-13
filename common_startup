@@ -20,5 +20,4 @@ alias .3="cd ../../.."
 alias .4="cd ../../../.."
 
 # Source host specific startup file
-DIRNAME="$( cd "$( dirname "$0" )" && pwd )"
-. "$DIRNAME"/common_startup_`hostname`
+. ~/dotfiles/common_startup_`hostname`
