@@ -20,7 +20,7 @@ alias .3="cd ../../.."
 alias .4="cd ../../../.."
 alias ch="pushd ~"
 alias cw="pushd ~/working"
-
+alias cdo="pushd ~/dotfiles"
 
 # Source host specific startup file
 . ~/dotfiles/common_startup_`hostname`
