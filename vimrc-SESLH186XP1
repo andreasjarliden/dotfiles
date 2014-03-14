@@ -3,3 +3,6 @@ let mapleader = 'ö'
 " Ignore EBS directories from Command-T and other functions
 set wildignore+=deps
 set wildignore+=vs2012
+
+" No ack on Cygwin
+set grepprg=grep
