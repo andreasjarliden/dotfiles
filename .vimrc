@@ -17,7 +17,6 @@ set hidden
 set showcmd " Show partial commands
 set scrolloff=3
 set laststatus=2 " Display status line even if only one window
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
 set nobackup
 set noswapfile
 au CursorHold * checktime " Check if file changed on idle
