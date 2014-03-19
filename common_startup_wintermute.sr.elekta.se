@@ -14,3 +14,5 @@ alias w='pushd ~/working'
 alias ld8='LD_LIBRARY_PATH=/opt/gcc-4.8.1/lib64:$LD_LIBRARY_PATH '
 alias rebase='git svn rebase'
 alias dcommit='git svn dcommit'
+
+export PATH=$PATH:/opt/dcmtk-3.6.0-tpsw/bin
