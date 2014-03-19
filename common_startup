@@ -24,3 +24,5 @@ alias cdo="pushd ~/dotfiles"
 
 # Source host specific startup file
 . ~/dotfiles/common_startup_`hostname`
+
+export SVN_MERGE=~/dotfiles/svn_vimdiff_wrapper.sh
