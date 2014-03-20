@@ -18,8 +18,10 @@ title IR Black Colors
 #      | red grn blu  | |
 #      V V--color--V  V V
 
-color  0 178 178 178  0 0  # regular   foreground color (White)
-color  1   0   0   0  1 0  # regular   background color (Black)
+# color  0 178 178 178  0 0  # regular   foreground color (White)
+# color  1   0   0   0  1 0  # regular   background color (Black)
+color  0 238 238 238  0 0  # regular   foreground color (White)
+color  1  38  38  38  1 0  # regular   background color (Black)
 
 color  2  78  78  78  0 0  # regular   color 0 Black
 color  3 255 108  96  0 0  # regular   color 1 Red
