@@ -4,6 +4,7 @@ export CLICOLOR=1
 export EDITOR='vim'
 
 # Common aliases
+alias v='vim'
 alias ci='git ci'
 alias co='git co'
 alias f='fg'
