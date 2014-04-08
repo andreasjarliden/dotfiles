@@ -16,3 +16,5 @@ alias rebase='git svn rebase'
 alias dcommit='git svn dcommit'
 
 export PATH=$PATH:/opt/dcmtk-3.6.0-tpsw/bin
+
+source ~/dotfiles/common_startup_work

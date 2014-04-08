@@ -6,3 +6,5 @@ alias dcommit='git svn dcommit'
 alias vi='vim'
 
 ~/dotfiles/ir_black_mintty.sh
+
+source ~/dotfiles/common_startup_work
