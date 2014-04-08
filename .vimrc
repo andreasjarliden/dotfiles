@@ -31,6 +31,7 @@ augroup tabsettings
 	filetype plugin indent on
 	autocmd FileType c setlocal ts=4 sts=4 sw=4 expandtab
 	autocmd FileType cpp setlocal ts=2 sts=2 sw=2 expandtab
+	autocmd FileType cuda setlocal ts=2 sts=2 sw=2 expandtab
 	autocmd FileType objc setlocal ts=4 sts=4 sw=4 expandtab
 	autocmd FileType objcpp setlocal ts=4 sts=4 sw=4 expandtab
 	autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
@@ -42,6 +43,7 @@ augroup filetypes
 	au!
 	au BufEnter *.h let b:fswitchdst  = 'cpp,t'
 	au BufEnter *.t let b:fswitchdst  = 'h'
+	au BufEnter *.cu let b:fswitchdst  = 'h'
 	au BufNewFile,BufRead *.t set filetype=cpp
 augroup END
 
