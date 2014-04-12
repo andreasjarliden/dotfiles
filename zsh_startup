@@ -1,7 +1,12 @@
 autoload edit-command-line
+autoload -U colors && colors
 zle -N edit-command-line
 bindkey '^Xe' edit-command-line
 
 # Expand e.g. f/b into foo/bar
 autoload -U compinit
 compinit
+
+export PS1="%m:%1~ %{$fg[green]%}$%{$reset_color%} "
+
+source ~/dotfiles/common_startup
