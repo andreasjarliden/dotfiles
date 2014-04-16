@@ -112,7 +112,7 @@ endfunction
 nnoremap <silent> <Leader>f :CommandT<CR>
 nnoremap <silent> <Leader>b :CommandTBuffer<CR>
 
-let g:CommandTMaxFiles=30000
+let g:CommandTMaxFiles=60000
 
 " Fuzzy Recursive file search on <leader>t
 " nnoremap <leader>t :<C-u>Unite -start-insert file_rec<CR>
