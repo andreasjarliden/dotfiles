@@ -168,6 +168,10 @@ iabbrev aia alloc] init] autorelease]
 " Use a restrictive errorformat since it easily thinks that times (e.g.
 " 20:00:00) is a filename:line:column otherwise.
 set errorformat=%f(%l):\ %trror:\ %m,%f(%l):\ %tarning:\ %m,%f:%l:%c:\ %tarning:\ %m,%f:%l:%c:\ error:\ %m,%f:%l:\ error:\ %m,%f:%l:%c:\ fatal\ error:\ %m
+" Support for error messages prefixed with build.bat from EBS
+set errorformat+=,build.bat:%*\\s%*\\d>%f(%l):\ %trror\ %m
+" As above but allow for ____123> inserted by Incredibuild before the filename
+set errorformat+=,build.bat:%f(%l):%*\\s%trror\ %m
 
 nmap <C-S-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
