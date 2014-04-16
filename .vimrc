@@ -187,3 +187,9 @@ endfunc
 nnoremap <leader>es :vsplit ~/docs/toolSharpening.txt<cr>
 " Edit work_startup
 nnoremap <leader>ew :vsplit ~/dotfiles/work_startup<cr>
+
+"
+" Vim airline
+"
+" let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing' ]
+let g:airline#extensions#whitespace#checks = [ 'indent' ]
