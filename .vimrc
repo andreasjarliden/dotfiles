@@ -192,4 +192,4 @@ nnoremap <leader>ew :vsplit ~/dotfiles/work_startup<cr>
 " Vim airline
 "
 " let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing' ]
-let g:airline#extensions#whitespace#checks = [ 'indent' ]
+let g:airline#extensions#whitespace#checks = []
