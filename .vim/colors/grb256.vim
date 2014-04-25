@@ -24,9 +24,9 @@ hi SpellBad       guifg=white       guibg=#FF6C60     gui=BOLD      ctermfg=16  
 " ir_black doesn't highlight operators for some reason
 hi Operator        guifg=#6699CC     guibg=NONE        gui=NONE      ctermfg=lightblue   ctermbg=NONE        cterm=NONE
 
-highlight DiffAdd term=reverse cterm=bold ctermbg=28
+highlight DiffAdd term=reverse cterm=bold ctermbg=22
 highlight DiffChange term=reverse cterm=bold ctermbg=234
-highlight DiffText term=reverse cterm=bold ctermbg=darkgray
+highlight DiffText term=reverse cterm=bold ctermbg=237
 highlight DiffDelete term=reverse cterm=bold ctermbg=darkred 
 
 highlight gitCommitSummary ctermfg=red
