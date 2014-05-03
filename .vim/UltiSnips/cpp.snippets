@@ -1,0 +1,58 @@
+snippet inc "#include "
+#include "$0"
+endsnippet
+
+snippet ns "namespace { }"
+namespace ${1:name} {
+
+$0
+
+} // namespace $1
+endsnippet
+
+snippet tsh "TestSuite header"
+#ifndef INCLUDED_ESPTEST_$2_$1_TEST_H
+#define INCLUDED_ESPTEST_$2_$1_TEST_H
+
+#include <esptest/$2/export.h>
+#include <esp/util/TestSuite.h>
+
+namespace esp {
+class TestResult;
+class TestContext;
+}
+
+namespace esptest {
+
+ESP_PUBLIC class ESPTEST_${2:PACKAGE}_EXPORT ${1:Name}Test : public esp::TestSuite {
+  typedef $1Test Self;
+
+  void test1(esp::TestResult&, esp::TestContext&) const;
+
+public:
+  $1Test();
+}
+
+} // esptest namespace
+
+#endif // INCLUDED_ESPTEST_$2_$1_TEST_H
+endsnippet
+
+snippet tsi "TestSuite implementation"
+#include <esptest/$2/$1Test.h>
+#include <esp/util/TestResult.h>
+#include <esp/util/TestCaseMemberFunction.h>
+
+using namespace esp;
+
+void $1Test::test1(TestResult& result, TestContext&) const {
+  $0
+}
+
+$1Test::$1Test()
+  : TestSuite("esp-test-$2-$1", "") {
+  typedef TestCaseMemberFunction<Self> TC;
+
+  addTest(make_shared_ptr<TC>(this, &Self::test1, "esp-test-$2-$1-test1"));
+}
+endsnippet
