@@ -114,6 +114,13 @@ endfunction
 nnoremap <silent> <Leader>f :CommandT<CR>
 nnoremap <silent> <Leader>b :CommandTBuffer<CR>
 
+" Ignore EBS directories from Command-T and other functions
+set wildignore+=deps
+set wildignore+=vs2012
+set wildignore+=.git
+set wildignore+=build-*
+
+
 let g:CommandTMaxFiles=60000
 
 " Fuzzy Recursive file search on <leader>t

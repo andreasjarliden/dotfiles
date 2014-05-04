@@ -1,7 +1,4 @@
 let mapleader = 'ö'
 
-" Ignore EBS directories from Command-T and other functions
-set wildignore+=deps
-set wildignore+=vs2012
 
 noremap <C-f> :pyf ~/dotfiles/clang-format.py<CR>
