@@ -16,6 +16,8 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [alias]
+	a = add
+	b = branch
 	s = status
 	l = "!source ~/.githelpers && pretty_git_log"
 	la = !git l --all
