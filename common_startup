@@ -15,6 +15,7 @@ alias g='git'
 alias a='git add'
 alias ap='git add -p'
 alias AMEND='git ci --amend -C HEAD'
+alias gsr='git svn rebase'
 alias ..="cd .."
 alias ...="cd ../.."
 alias .3="cd ../../.."
