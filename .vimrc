@@ -30,8 +30,9 @@ augroup tabsettings
 	au!
 	filetype plugin indent on
 	autocmd FileType c setlocal ts=4 sts=4 sw=4 expandtab
-	autocmd FileType cpp setlocal ts=2 sts=2 sw=2 expandtab
+	autocmd FileType cpp setlocal commentstring=//%s ts=2 sts=2 sw=2 expandtab
 	autocmd FileType cuda setlocal ts=2 sts=2 sw=2 expandtab
+	autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
 	autocmd FileType objc setlocal ts=4 sts=4 sw=4 expandtab
 	autocmd FileType objcpp setlocal ts=4 sts=4 sw=4 expandtab
 	autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
