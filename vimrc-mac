@@ -1,3 +1,5 @@
+set grepprg=ack
+
 augroup objc
 	au!
 	au BufEnter *.h let b:fswitchdst  = 'm,mm'

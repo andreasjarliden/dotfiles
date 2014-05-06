@@ -4,5 +4,3 @@ let mapleader = 'ö'
 set wildignore+=deps
 set wildignore+=vs2012
 
-" No ack on Cygwin
-set grepprg=grep

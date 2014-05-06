@@ -52,7 +52,6 @@ augroup arduino
 augroup END
 
 set autowrite " Automatically save before building
-set grepprg=ack
 nmap <Leader>d <C-]>
 
 "
