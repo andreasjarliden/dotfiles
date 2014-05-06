@@ -4,3 +4,4 @@ let mapleader = 'ö'
 set wildignore+=deps
 set wildignore+=vs2012
 
+noremap <C-f> :pyf ~/dotfiles/clang-format.py<CR>
