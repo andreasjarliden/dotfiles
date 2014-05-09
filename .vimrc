@@ -79,6 +79,8 @@ vnoremap . :normal .<cr>
 
 " Alternate File (Header <> Impl file)
 noremap <leader>a :FSHere<cr>
+nmap <silent> <Leader>ol :FSRight<cr>
+nmap <silent> <Leader>oL :FSSplitRight<cr>
 
 " Previous buffer
 nnoremap <leader>p :b#<cr>
