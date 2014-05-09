@@ -2,4 +2,4 @@ let mapleader = ';'
 
 set grepprg=ack
 
-map <C-K> :pyf /opt/llvm/bin/clang-format.py<CR>
+map <C-a> :pyf /opt/llvm/bin/clang-format.py<CR>
