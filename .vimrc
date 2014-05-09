@@ -46,6 +46,7 @@ augroup filetypes
 	au BufEnter *.t let b:fswitchdst  = 'h'
 	au BufEnter *.cu let b:fswitchdst  = 'h'
 	au BufNewFile,BufRead *.t set filetype=cpp
+	au BufNewFile,BufRead *.md set filetype=markdown
 augroup END
 
 augroup arduino
