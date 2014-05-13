@@ -1,4 +1,5 @@
 let mapleader = 'ö'
 
+set grepprg=git\ grep\ -n
 
 noremap <C-f> :pyf ~/dotfiles/clang-format.py<CR>
