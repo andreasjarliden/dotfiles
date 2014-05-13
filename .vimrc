@@ -96,6 +96,8 @@ nnoremap <leader>r :wa<cr>:Make<Up><cr>
 " Save All
 nnoremap <leader>s :wa<cr>
 
+set include=^\\s*#include\ \\(<boost/\\)\\@!
+
 " Run a given vim command on the results of fuzzy selecting from a given shell
 " command. See usage below.
 function! SelectaCommand(choice_command, selecta_args, vim_command)
