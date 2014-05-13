@@ -5,7 +5,7 @@
 	ui = auto
 [core]
 	editor = vim 
-	excludesfile = /Users/andreas/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	trustctime = false
 [rebase]
 	autosquash = true
