@@ -2,12 +2,20 @@ snippet inc "#include "
 #include <$0>
 endsnippet
 
+snippet inccu "#include <esp/cuda/...>"
+#include <esp/cuda/$0.h>
+endsnippet
+
 snippet v3i "Vector3i"
 Vector3i
 endsnippet
 
 snippet v3f "Vector3f"
 Vector3f
+endsnippet
+
+snippet v3d "Vector3d"
+Vector3d
 endsnippet
 
 snippet v2i "Vector2i"
@@ -18,12 +26,20 @@ snippet v2f "Vector2f"
 Vector2f
 endsnippet
 
+snippet v2d "Vector2d"
+Vector2d
+endsnippet
+
 snippet ns "namespace { }"
 namespace ${1:name} {
 
 $0
 
 } // namespace $1
+endsnippet
+
+snippet uns "using namespace "
+using namespace $0
 endsnippet
 
 snippet tsh "TestSuite header"
@@ -43,11 +59,11 @@ namespace esptest {
 ESP_PUBLIC class ESPTEST_${2:PACKAGE}_EXPORT ${1:Name}Test : public esp::TestSuite {
   typedef $1Test Self;
 
-  void test1(esp::TestResult&, esp::TestContext&) const;
+  void test1(esp::TestResult&, esp::TestContext&) const;$0
 
 public:
   $1Test();
-}
+};
 
 } // esptest namespace
 
@@ -61,6 +77,8 @@ snippet tsi "TestSuite implementation"
 
 using namespace esp;
 
+namespace esptest {
+
 void $1Test::test1(TestResult& result, TestContext&) const {
   $0
 }
@@ -69,6 +87,9 @@ $1Test::$1Test()
   : TestSuite("esp-test-$2-$1", "") {
   typedef TestCaseMemberFunction<Self> TC;
 
-  addTest(make_shared_ptr<TC>(this, &Self::test1, "esp-test-$2-$1-test1"));
+  addTest(make_shared<TC>(this, &Self::test1, "esp-test-$2-$1-test1", "test1"));
 }
+
+} // naemspace esptest
+
 endsnippet
