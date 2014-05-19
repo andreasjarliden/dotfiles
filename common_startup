@@ -1,5 +1,7 @@
 #!/bin/sh
 
+setopt AUTO_CD
+
 export CLICOLOR=1
 export EDITOR='vim'
 
