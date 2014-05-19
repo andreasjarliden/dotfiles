@@ -53,7 +53,6 @@ command = [binary, '-lines', lines, '-style', style, '-cursor', str(cursor)]
 if vim.current.buffer.name:
   fixedCygwinPath = re.sub("^/cygdrive/(.)", "\\1:", vim.current.buffer.name)
   command.extend(['-assume-filename', fixedCygwinPath])
-print command
 p = subprocess.Popen(command,
                      stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                      stdin=subprocess.PIPE, startupinfo=startupinfo)
