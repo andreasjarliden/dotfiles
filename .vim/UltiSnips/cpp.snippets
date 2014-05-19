@@ -1,3 +1,12 @@
+snippet eonce "ESP include guard"
+#ifndef INCLUDE_ESP_${1:PACKAGE}_${2:FILE}_H
+#define INCLUDE_ESP_$1_$2_H
+
+$0
+
+#endif // INCLUDE_ESP_$1_$2_H
+endsnippet
+
 snippet inc "#include "
 #include <$0>
 endsnippet
