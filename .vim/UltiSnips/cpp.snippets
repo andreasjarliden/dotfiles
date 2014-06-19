@@ -11,8 +11,16 @@ snippet inc "#include "
 #include <$0>
 endsnippet
 
+snippet einc "#include "
+#include <esp/$0.h>
+endsnippet
+
 snippet inccu "#include <esp/cuda/...>"
 #include <esp/cuda/$0.h>
+endsnippet
+
+snippet coutvar "cout << foo: << foo << endl"
+std::cout << "${1:Expression}: " << $1 << std::endl;
 endsnippet
 
 snippet v3i "Vector3i"
@@ -49,6 +57,12 @@ endsnippet
 
 snippet uns "using namespace "
 using namespace $0
+endsnippet
+
+snippet tf "TestCase member function"
+void ${1:Class}::test$2(TestResult& result, TestContext&) const {
+  $0
+}
 endsnippet
 
 snippet tsh "TestSuite header"
@@ -99,6 +113,6 @@ $1Test::$1Test()
   addTest(make_shared<TC>(this, &Self::test1, "esp-test-$2-$1-test1", "test1"));
 }
 
-} // naemspace esptest
+} // namespace esptest
 
 endsnippet
