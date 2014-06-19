@@ -6,6 +6,8 @@ export CLICOLOR=1
 export EDITOR='vim'
 
 # Common aliases
+alias m='make'
+alias ta='tmux attach'
 alias v='vim'
 alias ci='git ci'
 alias co='git co'
@@ -18,6 +20,8 @@ alias a='git add'
 alias ap='git add -p'
 alias AMEND='git ci --amend -C HEAD'
 alias gsr='git svn rebase'
+alias grc='git rebase --continue'
+alias mt='git mergetool'
 alias ..="cd .."
 alias ...="cd ../.."
 alias .3="cd ../../.."
