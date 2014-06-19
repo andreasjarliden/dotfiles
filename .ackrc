@@ -21,6 +21,8 @@
 --ignore-directory=is:cover_db
 --ignore-directory=is:node_modules
 --ignore-directory=is:CMakeFiles
+--ignore-directory=is:build-llvm
+--ignore-directory=is:build-dynamic
 --ignore-file=ext:bak
 --ignore-file=match:/~$/
 --ignore-file=match:/^#.+#$/
