@@ -45,7 +45,8 @@ augroup filetypes
 	au!
 	au BufEnter *.h let b:fswitchdst  = 'cpp,t'
 	au BufEnter *.t let b:fswitchdst  = 'h'
-	au BufEnter *.cu let b:fswitchdst  = 'h'
+	au BufEnter *.cu let b:fswitchdst  = 'h,cpp'
+	au BufEnter *.cu let b:fswitchlocs  = '.'
 	au BufNewFile,BufRead *.t set filetype=cpp
 	au BufNewFile,BufRead *.md set filetype=markdown
 augroup END
@@ -185,6 +186,8 @@ set errorformat=%f(%l):\ %trror:\ %m,%f(%l):\ %tarning:\ %m,%f:%l:%c:\ %tarning:
 set errorformat+=,build.bat:%*\\s%*\\d>%f(%l):\ %trror\ %m
 " As above but allow for ____123> inserted by Incredibuild before the filename
 set errorformat+=,build.bat:%f(%l):%*\\s%trror\ %m
+set errorformat+=,%*\\s%f(%l):%*\\s%trror\ %m
+" set errorformat+=,\ %#%(%l\\\,%c):\ %m
 
 nmap <C-S-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
