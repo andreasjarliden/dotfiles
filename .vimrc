@@ -45,10 +45,12 @@ augroup filetypes
 	au!
 	au BufEnter *.h let b:fswitchdst  = 'cpp,t'
 	au BufEnter *.t let b:fswitchdst  = 'h'
+	au BufEnter *.t let b:fswitchlocs  = '.'
 	au BufEnter *.cu let b:fswitchdst  = 'h,cpp'
 	au BufEnter *.cu let b:fswitchlocs  = '.'
 	au BufNewFile,BufRead *.t set filetype=cpp
 	au BufNewFile,BufRead *.md set filetype=markdown
+	au BufNewFile,BufRead *.dox set filetype=doxygen
 augroup END
 
 augroup arduino
@@ -163,7 +165,7 @@ onoremap a# :execute ":normal ?^#\rV/^#\r"<cr>
 noremap <leader>cr :call ObjCCurrentClass()<cr>
 
 " Change ending { into ;
-nnoremap <leader>ä :execute ":s/ \*{/;"<cr>
+nnoremap <leader>' :execute ":s/ \*{/;"<cr>
 
 " Add #import for word under cursor
 nnoremap <leader>i mzyiwggO#import "<esc>pa.h"<esc>`z

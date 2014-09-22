@@ -23,28 +23,32 @@ snippet coutvar "cout << foo: << foo << endl"
 std::cout << "${1:Expression}: " << $1 << std::endl;
 endsnippet
 
+snippet mv "makeVector(..)"
+makeVector($0
+endsnippet
+
 snippet v3i "Vector3i"
-Vector3i
+Vector3i 
 endsnippet
 
 snippet v3f "Vector3f"
-Vector3f
+Vector3f 
 endsnippet
 
 snippet v3d "Vector3d"
-Vector3d
+Vector3d 
 endsnippet
 
 snippet v2i "Vector2i"
-Vector2i
+Vector2i 
 endsnippet
 
 snippet v2f "Vector2f"
-Vector2f
+Vector2f 
 endsnippet
 
 snippet v2d "Vector2d"
-Vector2d
+Vector2d 
 endsnippet
 
 snippet ns "namespace { }"
@@ -55,8 +59,13 @@ $0
 } // namespace $1
 endsnippet
 
-snippet uns "using namespace "
-using namespace $0
+snippet ans "anonymous namespace"
+namespace {
+
+$0
+
+} // unnamed namespace
+
 endsnippet
 
 snippet tf "TestCase member function"
@@ -103,7 +112,7 @@ using namespace esp;
 namespace esptest {
 
 void $1Test::test1(TestResult& result, TestContext&) const {
-  $0
+  result.failed("not implemented");
 }
 
 $1Test::$1Test()
@@ -115,4 +124,8 @@ $1Test::$1Test()
 
 } // namespace esptest
 
+endsnippet
+
+snippet sp "shared_ptr"
+shared_ptr<$1>$0
 endsnippet

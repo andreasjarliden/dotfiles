@@ -1,11 +1,21 @@
 autoload edit-command-line
-autoload -U colors && colors
 zle -N edit-command-line
 bindkey '^X^E' edit-command-line
+
+# Avoids having to use escape codes
+autoload -U colors && colors
 
 # Expand e.g. f/b into foo/bar
 autoload -U compinit
 compinit
+
+# zsh seems to default to vi, perhaps because thats the configured editor
+set -o emacs
+
+setopt AUTO_CD
+
+# Dont't use C-s, C-q to pause, resume output
+setopt noflowcontrol
 
 export PS1="%m:%1~ %{$fg[green]%}$%{$reset_color%} "
 
