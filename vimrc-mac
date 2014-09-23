@@ -1,3 +1,5 @@
+let mapleader = 'ö'
+
 set grepprg=ack
 
 augroup objc
