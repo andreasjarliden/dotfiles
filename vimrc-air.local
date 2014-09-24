@@ -1,0 +1,5 @@
+" Source mac specific vimrc file
+let hostfile=expand('~/dotfiles/vimrc-mac')
+if filereadable(hostfile)
+	execute 'source ' . hostfile
+endif
