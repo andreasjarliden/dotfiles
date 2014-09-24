@@ -1,0 +1,6 @@
+#!/bin/bash
+export LM_STAGING="/Users/andreas/Dropbox/working/gitlmwebsite"
+
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=$PATH:~/bin
+
