@@ -14,6 +14,9 @@ set -o emacs
 
 setopt AUTO_CD
 
+# Allows things such as rm ^dontdeleteme.txt
+setopt extended_glob
+
 # Dont't use C-s, C-q to pause, resume output
 setopt noflowcontrol
 
