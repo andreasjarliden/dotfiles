@@ -15,6 +15,14 @@ snippet einc "#include "
 #include <esp/$0.h>
 endsnippet
 
+snippet incer "#include <esp/reconstruction/...>"
+#include <esp/reconstruction/$0.h>
+endsnippet
+
+snippet incec "#include <esp/calibration/...>"
+#include <esp/reconstruction/$0.h>
+endsnippet
+
 snippet inccu "#include <esp/cuda/...>"
 #include <esp/cuda/$0.h>
 endsnippet
@@ -53,20 +61,22 @@ endsnippet
 
 snippet ns "namespace { }"
 namespace ${1:name} {
-
 $0
-
 } // namespace $1
 endsnippet
 
 snippet ans "anonymous namespace"
 namespace {
-
 $0
-
 } // unnamed namespace
-
 endsnippet
+
+snippet ens "namespace esp { }"
+namespace esp {
+$0
+} // namespace esp
+endsnippet
+
 
 snippet tf "TestCase member function"
 void ${1:Class}::test$2(TestResult& result, TestContext&) const {
