@@ -23,6 +23,7 @@
 --ignore-directory=is:CMakeFiles
 --ignore-directory=is:build-llvm
 --ignore-directory=is:build-dynamic
+--ignore-file=is:tags
 --ignore-file=ext:bak
 --ignore-file=match:/~$/
 --ignore-file=match:/^#.+#$/
