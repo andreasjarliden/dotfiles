@@ -2,7 +2,7 @@ let mapleader = 'ö'
 
 set grepprg=ack
 
-augroup objc
+augroup filetypes_mac
 	au!
 	au BufEnter *.h let b:fswitchdst  = 'm,mm'
 	au BufEnter *.mm let b:fswitchdst  = 'h'

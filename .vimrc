@@ -41,9 +41,9 @@ augroup tabsettings
 	autocmd FileType cmake setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
 
-augroup filetypes
+" Also have filetypes_work and filetypes_mac in vimrc-work and vimrc-mac
+augroup filetypes_common
 	au!
-	au BufEnter *.h let b:fswitchdst  = 'cpp,t'
 	au BufEnter *.t let b:fswitchdst  = 'h'
 	au BufEnter *.t let b:fswitchlocs  = '.'
 	au BufEnter *.cu let b:fswitchdst  = 'h,cpp'

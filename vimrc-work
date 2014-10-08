@@ -1,0 +1,6 @@
+
+augroup filetypes_work
+	au!
+	au BufEnter *.h let b:fswitchdst  = 'cpp,t'
+augroup END
+

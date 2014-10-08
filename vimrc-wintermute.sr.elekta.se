@@ -1,3 +1,9 @@
+" Source work specific vimrc file
+let hostfile=expand('~/dotfiles/vimrc-work')
+if filereadable(hostfile)
+	execute 'source ' . hostfile
+endif
+
 let mapleader = ';'
 
 set grepprg=ack
