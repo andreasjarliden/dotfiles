@@ -191,15 +191,6 @@ set errorformat+=,build.bat:%f(%l):%*\\s%trror\ %m
 set errorformat+=,%*\\s%f(%l):%*\\s%trror\ %m
 " set errorformat+=,\ %#%(%l\\\,%c):\ %m
 
-nmap <C-S-P> :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-	if !exists("*synstack")
-		return
-	endif
-	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
-
-
 " Open tool sharpening list
 " nnoremap <leader>es :vsplit ~/Documents/toolSharpening.txt<cr>
 nnoremap <leader>es :vsplit ~/docs/toolSharpening.txt<cr>
@@ -211,3 +202,7 @@ nnoremap <leader>ew :vsplit ~/dotfiles/work_startup<cr>
 "
 " let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing' ]
 let g:airline#extensions#whitespace#checks = []
+
+nmap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+			\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+			\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
