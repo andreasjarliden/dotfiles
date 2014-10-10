@@ -1,11 +1,16 @@
-call pathogen#infect()
-call pathogen#helptags()
-"
+" Names of plugins to disable here. Host specific files can add to it using
+" call add(g:pathogen_disabled, 'foo')
+let g:pathogen_disabled = []
+
 " Source host specific vimrc file
 let hostfile=expand('~/dotfiles/vimrc-' . hostname())
 if filereadable(hostfile)
 	execute 'source ' . hostfile
 endif
+
+" Start pathogen
+call pathogen#infect()
+call pathogen#helptags()
 
 set nocompatible
 syntax enable

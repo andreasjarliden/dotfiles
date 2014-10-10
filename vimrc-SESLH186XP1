@@ -4,6 +4,8 @@ if filereadable(hostfile)
 	execute 'source ' . hostfile
 endif
 
+call add(g:pathogen_disabled, 'ultisnips')
+
 let mapleader = 'ö'
 
 set grepprg=git\ grep\ -n
