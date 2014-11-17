@@ -24,6 +24,7 @@ set scrolloff=3
 set laststatus=2 " Display status line even if only one window
 set nobackup
 set noswapfile
+set autoread
 au CursorHold * checktime " Check if file changed on idle
 set updatetime=2000 " Reduce the updatetime from 4s to 2s which affect checktime above
 hi CursorLine ctermbg=235  guibg=white cterm=NONE
