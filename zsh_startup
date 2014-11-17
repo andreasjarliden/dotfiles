@@ -27,6 +27,6 @@ HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 HISTFILE=$HOME/.zhistory
 
-export PS1="%m:%1~ %{$fg[green]%}$%{$reset_color%} "
+export PS1="%m:%1~ (%j)%{$fg[green]%}$%{$reset_color%} "
 
 source ~/dotfiles/common_startup
