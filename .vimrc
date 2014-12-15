@@ -123,8 +123,8 @@ function! SelectaCommand(choice_command, selecta_args, vim_command)
 	exec a:vim_command . " " . selection
 endfunction
 
-nnoremap <silent> <Leader>f :CommandT<CR>
-nnoremap <silent> <Leader>b :CommandTBuffer<CR>
+nnoremap <silent> <Leader>f :CtrlP<CR>
+nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
 
 " Ignore EBS directories from Command-T and other functions
 set wildignore+=deps
