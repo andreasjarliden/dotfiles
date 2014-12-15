@@ -27,6 +27,7 @@ alias .4="cd ../../../.."
 alias ch="pushd ~"
 alias cw="pushd ~/working"
 alias cdo="pushd ~/dotfiles"
+alias pd="pushd"
 alias resource="source ~/dotfiles/common_startup"
 
 # Source host specific startup file
