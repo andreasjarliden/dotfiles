@@ -1,3 +1,7 @@
+snippet cammel "camelCase to SCREAMING_SNAKE_CASE"
+${1:fooBar} ${1/(([a-z])([A-Z]))|./(?1:\u$2_$3:\U$0\E)/g}
+endsnippet
+
 snippet eonce "ESP include guard"
 #ifndef INCLUDE_ESP_${1:PACKAGE}_${2:FILE}_H
 #define INCLUDE_ESP_$1_$2_H
@@ -20,7 +24,7 @@ snippet incer "#include <esp/reconstruction/...>"
 endsnippet
 
 snippet incec "#include <esp/calibration/...>"
-#include <esp/reconstruction/$0.h>
+#include <esp/calibration/$0.h>
 endsnippet
 
 snippet inccu "#include <esp/cuda/...>"
@@ -77,6 +81,9 @@ $0
 } // namespace esp
 endsnippet
 
+snippet uns "using namespace"
+using namespace 
+endsnippet
 
 snippet tf "TestCase member function"
 void ${1:Class}::test$2(TestResult& result, TestContext&) const {
@@ -85,10 +92,10 @@ void ${1:Class}::test$2(TestResult& result, TestContext&) const {
 endsnippet
 
 snippet tsh "TestSuite header"
-#ifndef INCLUDED_ESPTEST_$2_$1_TEST_H
-#define INCLUDED_ESPTEST_$2_$1_TEST_H
+#ifndef INCLUDED_ESPTEST_${2/.*/\U$0\E/}_${1/(([a-z])([A-Z]))|./(?1:\u$2_$3:\U$0\E)/g}_TEST_H
+#define INCLUDED_ESPTEST_${2/.*/\U$0\E/}_${1/(([a-z])([A-Z]))|./(?1:\u$2_$3:\U$0\E)/g}_TEST_H
 
-#include <esptest/$2/export.h>
+#include <esptest/${2:`!v expand("%:h:t")`}/export.h>
 #include <esp/util/TestSuite.h>
 
 namespace esp {
@@ -98,22 +105,23 @@ class TestContext;
 
 namespace esptest {
 
-ESP_PUBLIC class ESPTEST_${2:PACKAGE}_EXPORT ${1:Name}Test : public esp::TestSuite {
-  typedef $1Test Self;
+ESP_PUBLIC class ESPTEST_${2/.*/\U$0\E/}_EXPORT ${1:`!v expand("%:t:r")`}: public esp::TestSuite {
+  typedef $1 Self;
 
   void test1(esp::TestResult&, esp::TestContext&) const;$0
 
 public:
-  $1Test();
+  $1();
 };
 
 } // esptest namespace
 
-#endif // INCLUDED_ESPTEST_$2_$1_TEST_H
+#endif // INCLUDED_ESPTEST_${2/.*/\U$0\E/}_${1/(([a-z])([A-Z]))|./(?1:\u$2_$3:\U$0\E)/g}_TEST_H
 endsnippet
 
 snippet tsi "TestSuite implementation"
-#include <esptest/$2/$1Test.h>
+#include <esptest/${2:`!v expand("%:h:t")`}/$1.h>
+#include <esp/$2/${1/(.*)Test/$1/}.h>
 #include <esp/util/TestResult.h>
 #include <esp/util/TestCaseMemberFunction.h>
 
@@ -121,15 +129,15 @@ using namespace esp;
 
 namespace esptest {
 
-void $1Test::test1(TestResult& result, TestContext&) const {
+void ${1:`!v expand("%:t:r")`}::test1(TestResult& result, TestContext&) const {
   result.failed("not implemented");
 }
 
-$1Test::$1Test()
-  : TestSuite("esp-test-$2-$1", "") {
+$1::$1()
+  : TestSuite("esp-test-$2-${1/(.*)Test/\L$1\E/}", "") {
   typedef TestCaseMemberFunction<Self> TC;
 
-  addTest(make_shared<TC>(this, &Self::test1, "esp-test-$2-$1-test1", "test1"));
+  addTest(make_shared<TC>(this, &Self::test1, "esp-test-$2-${1/(.*)Test/\L$1\E/}-1", "test1"));
 }
 
 } // namespace esptest
@@ -140,8 +148,8 @@ snippet sp "shared_ptr"
 shared_ptr<$1>$0
 endsnippet
 
-snippet cout "std::cout << "
-std::cout << $0
+snippet cout "std::cout << ... << std::endl"
+std::cout << $0 << std::endl;
 endsnippet
 
 snippet endl "std::endl"
