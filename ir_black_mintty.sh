@@ -6,7 +6,8 @@
 # Replaces the default ANSI colors with something close to Todd Werth's
 # IR_Black TextMate theme.
  
-echo -ne '\e]10;#D4D4D4\a'     # Foreground/typed text
+# echo -ne '\e]10;#D4D4D4\a'     # Foreground/typed text
+echo -ne '\e]10;#FFFFFF\a'     # Foreground/typed text
 echo -ne '\e]11;#000000\a'     # Background
 echo -ne '\e]12;#D4D4D4\a'     # Cursor
  
