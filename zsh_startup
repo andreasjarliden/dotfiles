@@ -1,5 +1,10 @@
 autoload -U edit-command-line
 zle -N edit-command-line
+
+# zsh seems to default to vi, perhaps because thats the configured editor
+# Note, this seems to override explicit bindkey commands, so do this first.
+set -o emacs
+
 # Note, key is Ctrl-x followed by only e
 bindkey '^Xe' edit-command-line
 
@@ -9,9 +14,6 @@ autoload -U colors && colors
 # Expand e.g. f/b into foo/bar
 autoload -U compinit
 compinit
-
-# zsh seems to default to vi, perhaps because thats the configured editor
-set -o emacs
 
 setopt AUTO_CD
 
