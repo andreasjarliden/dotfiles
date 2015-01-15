@@ -124,8 +124,14 @@ function! SelectaCommand(choice_command, selecta_args, vim_command)
 	exec a:vim_command . " " . selection
 endfunction
 
+"
+" Control-P
+"
 nnoremap <silent> <Leader>f :CtrlP<CR>
 nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
+" Increase the number of results from 10 to 100 to not miss desired match when
+" there are many matches.
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:100'
 
 " Ignore EBS directories from Command-T and other functions
 set wildignore+=deps
