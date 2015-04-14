@@ -1,6 +1,7 @@
 let mapleader = 'ö'
 
 set grepprg=ack
+let mapleader = 'ö'
 
 augroup filetypes_mac
 	au!
