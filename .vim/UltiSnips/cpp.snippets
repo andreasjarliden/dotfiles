@@ -11,8 +11,18 @@ $0
 #endif // INCLUDE_ESP_$1_$2_H
 endsnippet
 
+snippet once "#pragma once"
+#pragma once
+
+$0
+endsnippet
+
 snippet inc "#include "
 #include <$0>
+endsnippet
+
+snippet linc "local #include "
+#include "$0"
 endsnippet
 
 snippet einc "#include "
