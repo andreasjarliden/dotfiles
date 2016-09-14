@@ -1,0 +1,7 @@
+#!/bin/bash
+alias w='pushd ~/working'
+alias rebase='git svn rebase'
+alias dcommit='git svn dcommit'
+alias vi='vim'
+
+source ~/dotfiles/common_startup_work

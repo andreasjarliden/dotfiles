@@ -1,1 +1,2 @@
 export SVN=http://repo.sr.elekta.se/svn
+alias ptpsdb=sudo -u postgres psql -d tpsdb
