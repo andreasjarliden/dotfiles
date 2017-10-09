@@ -29,3 +29,5 @@
 	co = checkout
 [merge]
 	tool = vimdiff
+[push]
+	default = simple
