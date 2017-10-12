@@ -8,4 +8,4 @@ let mapleader = ';'
 
 set grepprg=ack
 
-map <C-a> :pyf /opt/llvm/bin/clang-format.py<CR>
+noremap <C-a> :pyf ~/dotfiles/clang-format.py<CR>
