@@ -1,5 +1,5 @@
 #!/bin/bash
-DOTFILES=`find . -name '.*' \( -type f -or -type d \) -depth 1 -print`
+DOTFILES=`find . -maxdepth 1 -name '.*' \( -type f -or -type d \) -print`
 cd ..
 for f in $DOTFILES; do
 	if [ -e $f ]
