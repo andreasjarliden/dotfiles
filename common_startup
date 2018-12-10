@@ -29,9 +29,11 @@ alias cw="pushd ~/working"
 alias cdo="pushd ~/dotfiles"
 alias pd="pushd"
 alias cpr="cp -r"
+alias gl=pretty_git_log
 alias resource="source ~/dotfiles/common_startup"
 
 # Source host specific startup file
 . ~/dotfiles/common_startup_`hostname`
+. ~/dotfiles/.githelpers
 
 export SVN_MERGE=~/dotfiles/svn_vimdiff_wrapper.sh
