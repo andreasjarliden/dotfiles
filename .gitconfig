@@ -31,3 +31,5 @@
 	tool = vimdiff
 [push]
 	default = simple
+[include]
+	path = /home/andreas/working/tps_dev_env/scripts/gitalias
