@@ -1,0 +1,10 @@
+#!/bin/bash
+alias winter="ssh wintermute.sr.elekta.se"
+alias w='pushd ~/working'
+alias rebase='git svn rebase'
+alias dcommit='git svn dcommit'
+alias vi='vim'
+
+~/dotfiles/ir_black_mintty.sh
+
+source ~/dotfiles/common_startup_work
