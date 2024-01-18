@@ -1,3 +1,4 @@
+export TERM=cygwin
 #!/bin/bash
 alias winter="ssh wintermute.sr.elekta.se"
 alias w='pushd ~/working'
