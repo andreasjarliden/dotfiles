@@ -1,4 +1,3 @@
-export TERM=cygwin
 #!/bin/bash
 alias winter="ssh wintermute.sr.elekta.se"
 alias w='pushd ~/working'
@@ -7,5 +6,10 @@ alias dcommit='git svn dcommit'
 alias vi='vim'
 
 ~/dotfiles/ir_black_mintty.sh
+
+platform=`uname`
+if [[ $platform == CYGWIN* ]]; then
+	export TERM=cygwin
+fi
 
 source ~/dotfiles/common_startup_work
