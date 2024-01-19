@@ -17,6 +17,7 @@ for f in $DOTFILES; do
 			echo Warning: $f already exists. Not linking to dotfiles.
 		fi
 	else
+		echo "Linked $f"
 		ln -s dotfiles/$f 
 	fi
 done
