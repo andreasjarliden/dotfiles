@@ -1,2 +1,2 @@
 #!/bin/sh
-. dotfiles/bash_startup
+. ~/dotfiles/bash_startup
