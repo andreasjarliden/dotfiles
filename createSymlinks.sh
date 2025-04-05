@@ -24,12 +24,15 @@ function processDirectory() {
 			fi
 		else
 			echo "Linking $f"
+			echo ln --relative -s $df $f
 			ln --relative -s $df $f
 		fi
 	done
 	popd >/dev/null
 }
 
-mkdir -p ../.config
+# Problematic to mkdir ../something
+(cd .. && mkdir -p .config)
+
 processDirectory ".config" "*"
 processDirectory "." ".*"
