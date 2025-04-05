@@ -1,23 +1,35 @@
 #!/bin/bash
-DOTFILES=`find . -maxdepth 1 -name '.*' \( -type f -or -type d \) -print`
-cd ..
-for f in $DOTFILES; do
-	if [ -e $f ]
-	then
-		if [ -L $f ]
+
+function processDirectory() {
+	local dir="$1"
+	local pattern="$2"
+	pushd . >/dev/null
+	cd ..
+	DOTFILES=`find dotfiles/"$dir" -mindepth 1 -maxdepth 1 -name "$pattern" \( -type f -or -type d \) -print`
+	for df in $DOTFILES; do
+		local f=${df#dotfiles/}
+		if [ -e $f ]
 		then
-			target="$(readlink $f)"
-			if [ "$target" = "dotfiles/$f" ]
+			if [ -L $f ]
 			then
-				echo "$f already set correctly."
+				target="$(readlink -f $f)"
+        if [[ $(realpath "$target") == $(realpath "$df") ]]
+				then
+					echo "$f already set correctly."
+				else
+					echo "$f is already a symlinked but to $(readlink $f); not $df"
+				fi
 			else
-				echo "$f is already a symlinked but to $(readlink $f); not dotfiles/$f"
+				echo Warning: $f already exists. Not linking to dotfiles.
 			fi
 		else
-			echo Warning: $f already exists. Not linking to dotfiles.
+			echo "Linking $f"
+			ln --relative -s $df $f
 		fi
-	else
-		echo "Linked $f"
-		ln -s dotfiles/$f 
-	fi
-done
+	done
+	popd >/dev/null
+}
+
+mkdir -p ../.config
+processDirectory ".config" "*"
+processDirectory "." ".*"
