@@ -1,5 +1,20 @@
 #!/bin/bash
 
+# MacOS lacks readlink and ln --relative so use the gnu equivalents. Can be
+# installed using `brew install coreutils`
+if command -v greadlink >/dev/null; then
+	READLINK_CMD=greadlink
+else
+	READLINK_CMD=readlink
+fi
+
+if command -v gln >/dev/null; then
+	LN_CMD=gln
+else
+	LN_CMD=ln
+fi
+
+
 function processDirectory() {
 	local dir="$1"
 	local pattern="$2"
@@ -12,20 +27,19 @@ function processDirectory() {
 		then
 			if [ -L $f ]
 			then
-				target="$(readlink -f $f)"
+				target="$($READLINK_CMD -f $f)"
         if [[ $(realpath "$target") == $(realpath "$df") ]]
 				then
 					echo "$f already set correctly."
 				else
-					echo "$f is already a symlinked but to $(readlink $f); not $df"
+					echo "$f is already a symlinked but to $(READLINK_CMD -f $f); not $df"
 				fi
 			else
 				echo Warning: $f already exists. Not linking to dotfiles.
 			fi
 		else
 			echo "Linking $f"
-			echo ln --relative -s $df $f
-			ln --relative -s $df $f
+      $($LN_CMD --relative -s $df $f)
 		fi
 	done
 	popd >/dev/null
