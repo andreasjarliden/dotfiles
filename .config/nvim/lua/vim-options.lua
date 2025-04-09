@@ -15,4 +15,8 @@ vim.g.mapleader = " "
 -- Use kk as <Esc> in insert mode
 vim.cmd("inoremap kk <Esc>")
 
-
+-- Split navigation
+vim.cmd("noremap <C-h> <C-w><C-h>")
+vim.cmd("noremap <C-j> <C-w><C-j>")
+vim.cmd("noremap <C-k> <C-w><C-k>")
+vim.cmd("noremap <C-l> <C-w><C-l>")
