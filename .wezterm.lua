@@ -4,11 +4,10 @@ local wezterm = require 'wezterm'
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
--- This is where you actually apply your config choices
-
 -- config.color_scheme = 'AdventureTime'
 -- config.color_scheme = 'Builtin Solarized Dark'
 config.color_scheme = 'Catppuccin Macchiato'
+
 config.font_size = 15.0
 config.keys = {
   { key = '1', mods = 'CTRL', action = wezterm.action.ActivateTab(0) },
@@ -19,6 +18,7 @@ config.keys = {
   { key = 'h', mods = 'CTRL|ALT', action = wezterm.action.SplitVertical },
 }
 
+-- Needed for left option key to work in MacOS
 config.send_composed_key_when_left_alt_is_pressed = true
 
 -- and finally, return the configuraiton to wezterm
