@@ -17,5 +17,7 @@ config.keys = {
   { key = '4', mods = 'CTRL', action = wezterm.action.ActivateTab(3) },
 }
 
+config.send_composed_key_when_left_alt_is_pressed = true
+
 -- and finally, return the configuraiton to wezterm
 return config
