@@ -20,7 +20,7 @@ function processDirectory() {
 	local pattern="$2"
 	pushd . >/dev/null
 	cd ..
-	DOTFILES=`find dotfiles/"$dir" -mindepth 1 -maxdepth 1 -name "$pattern" \( -type f -or -type d \) -print`
+	DOTFILES=`find dotfiles/"$dir" -mindepth 1 -maxdepth 1 -name "$pattern" \( -type f -or -type d \) ! -name .git -print`
 	for df in $DOTFILES; do
 		local f=${df#dotfiles/}
 		if [ -e $f ]
