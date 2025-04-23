@@ -9,6 +9,11 @@ local config = wezterm.config_builder()
 config.color_scheme = 'Catppuccin Macchiato'
 
 config.font_size = 15.0
+
+local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
+tabline.setup()
+
+-- Custom key mappings
 config.keys = {
   { key = '1', mods = 'CTRL', action = wezterm.action.ActivateTab(0) },
   { key = '2', mods = 'CTRL', action = wezterm.action.ActivateTab(1) },
