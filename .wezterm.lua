@@ -10,6 +10,12 @@ local config = wezterm.config_builder()
 -- config.color_scheme = 'Builtin Solarized Dark'
 config.color_scheme = 'Catppuccin Macchiato'
 config.font_size = 15.0
+config.keys = {
+  { key = '1', mods = 'CTRL', action = wezterm.action.ActivateTab(0) },
+  { key = '2', mods = 'CTRL', action = wezterm.action.ActivateTab(1) },
+  { key = '3', mods = 'CTRL', action = wezterm.action.ActivateTab(2) },
+  { key = '4', mods = 'CTRL', action = wezterm.action.ActivateTab(3) },
+}
 
 -- and finally, return the configuraiton to wezterm
 return config
