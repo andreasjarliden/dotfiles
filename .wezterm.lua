@@ -15,6 +15,8 @@ config.keys = {
   { key = '2', mods = 'CTRL', action = wezterm.action.ActivateTab(1) },
   { key = '3', mods = 'CTRL', action = wezterm.action.ActivateTab(2) },
   { key = '4', mods = 'CTRL', action = wezterm.action.ActivateTab(3) },
+  { key = 'v', mods = 'CTRL|ALT', action = wezterm.action.SplitHorizontal },
+  { key = 'h', mods = 'CTRL|ALT', action = wezterm.action.SplitVertical },
 }
 
 config.send_composed_key_when_left_alt_is_pressed = true
