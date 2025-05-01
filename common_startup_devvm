@@ -4,4 +4,6 @@ alias rebase='git svn rebase'
 alias dcommit='git svn dcommit'
 alias vi='vim'
 
+export ESPTESTDATA=~/workspace/esptestdata
+
 source ~/dotfiles/common_startup_work
