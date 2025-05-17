@@ -8,7 +8,7 @@ local config = wezterm.config_builder()
 -- config.color_scheme = 'Builtin Solarized Dark'
 config.color_scheme = 'Catppuccin Macchiato'
 
-config.font_size = 15.0
+config.font_size = 14.0
 
 local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
 tabline.setup()
