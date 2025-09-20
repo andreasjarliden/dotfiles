@@ -10,8 +10,9 @@ config.color_scheme = 'Catppuccin Mocha'
 
 config.font_size = 14.0
 
-local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
-tabline.setup()
+-- local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
+-- tabline.setup()
+config.enable_tab_bar = false
 
 -- Custom key mappings
 config.keys = {
