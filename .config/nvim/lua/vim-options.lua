@@ -20,3 +20,6 @@ vim.cmd("noremap <C-h> <C-w><C-h>")
 vim.cmd("noremap <C-j> <C-w><C-j>")
 vim.cmd("noremap <C-k> <C-w><C-k>")
 vim.cmd("noremap <C-l> <C-w><C-l>")
+
+-- Let . work on each line in visual mode
+vim.cmd("xnoremap . :normal .<CR>")
