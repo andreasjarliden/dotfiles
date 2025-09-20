@@ -2,3 +2,5 @@
 ssh-agent
 ssh-add ~/.ssh/githubKey 2>&1
 
+alias copy="xclip -selection clipboard"
+
