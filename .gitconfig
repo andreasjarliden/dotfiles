@@ -35,3 +35,5 @@
 	path = /home/andreas/working/tps_dev_env/scripts/gitalias
 [diff]
 	tool = meld
+[init]
+	defaultBranch = master
