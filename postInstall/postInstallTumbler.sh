@@ -12,6 +12,7 @@ firewall-cmd --reload
 packages="wezterm
 git
 neovim
+ripgrep
 neofetch
 gnome-shell-extension-user-theme
 btop htop
