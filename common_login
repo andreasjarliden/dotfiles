@@ -1,0 +1,25 @@
+#!/bin/sh
+
+echo common_login
+
+export GITHUB=https://github.com/andreasjarliden
+
+# Determine home/work based on domain
+DN=$(dnsdomainname)
+
+# Source home startup file
+if [[ "$DN" == *.home ]]; then
+  . ~/dotfiles/common_login_home
+fi
+
+# Source elekta startup file
+if [[ "$DN" == *.elekta ]]; then
+  . ~/dotfiles/common_login_elekta
+fi
+
+# Source host specific startup file
+HOST_LOGIN="$HOME/dotfiles/common_login_`hostname`"
+if [ -f "$HOST_LOGIN" ]; then
+  . "$HOST_LOGIN"
+fi
+

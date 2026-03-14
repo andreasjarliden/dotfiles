@@ -1,0 +1,2 @@
+echo common_login_elekta
+export SVN=https://repo.sr.elekta.se/svn

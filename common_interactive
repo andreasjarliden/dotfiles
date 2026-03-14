@@ -1,0 +1,39 @@
+#!/bin/sh
+
+export CLICOLOR=1
+export EDITOR='vim'
+
+# Common aliases
+alias m='make'
+alias ta='tmux attach'
+alias v='nvim'
+alias ci='git ci'
+alias co='git co'
+alias f='fg'
+alias l='ls'
+alias s='git s'
+#alias su='git s -uno'
+alias g='git'
+alias a='git add'
+alias ap='git add -p'
+alias AMEND='git ci --amend -C HEAD'
+alias gsr='git svn rebase'
+alias grc='git rebase --continue'
+alias gmt='git mergetool'
+alias ..="cd .."
+alias ...="cd ../.."
+alias .3="cd ../../.."
+alias .4="cd ../../../.."
+alias ch="pushd ~"
+alias cw="pushd ~/working"
+alias cdo="pushd ~/dotfiles"
+alias pd="pushd"
+alias cpr="cp -r"
+alias gl=pretty_git_log
+alias resource="source ~/dotfiles/common_startup"
+
+# Source host specific startup file
+. ~/dotfiles/common_interactive_`hostname`
+. ~/dotfiles/.githelpers
+
+export SVN_MERGE=~/dotfiles/svn_vimdiff_wrapper.sh

@@ -1,0 +1,5 @@
+#!/bin/bash
+echo common_login_home
+ssh-agent
+ssh-add ~/.ssh/githubKey 2>&1
+
