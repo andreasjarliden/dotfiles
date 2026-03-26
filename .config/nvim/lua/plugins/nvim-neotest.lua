@@ -16,7 +16,8 @@ return {
       -- Optional keymaps
       vim.keymap.set("n", "<leader>tn", function() require("neotest").run.run() end)
       vim.keymap.set("n", "<leader>tf", function() require("neotest").run.run(vim.fn.expand("%")) end)
-      vim.keymap.set("n", "<leader>ts", function() require("neotest").run.run({ suite = true }) end)
+      vim.keymap.set("n", "<leader>ta", function() require("neotest").run.run(vim.loop.cwd()) end)
+      vim.keymap.set("n", "<leader>ts", function() require("neotest").summary.toggle() end)
       vim.keymap.set("n", "<leader>tl", function() require("neotest").run.run_last() end)
       vim.keymap.set("n", "<leader>to", function() require("neotest").output.open() end)
     end,
