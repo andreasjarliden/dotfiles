@@ -2,7 +2,7 @@
 
 echo common_login
 
-export GITHUB=https://github.com/andreasjarliden
+export GITHUB=git@github.com:andreasjarliden
 
 # Determine home/work based on domain
 DN=$(dnsdomainname)

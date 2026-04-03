@@ -38,4 +38,4 @@ alias resource="source ~/dotfiles/common_startup"
 
 export SVN_MERGE=~/dotfiles/svn_vimdiff_wrapper.sh
 
-export GITHUB=https://github.com/andreasjarliden
+export GITHUB=git@github.com:andreasjarliden
