@@ -10,11 +10,13 @@ return {
     config = function() 
       require("neo-tree").setup({
         filesystem = {
+          bind_to_cwd = false,
           filtered_items = {
             hide_gitignored = true,
           },
         },
       })
       vim.keymap.set('n', '<leader>n', ':Neotree filesystem reveal left<CR>', {})
+      vim.keymap.set('n', '<leader>d', ':Neotree filesystem left dir=~/.config/nvim <CR>', {})
     end
   }
