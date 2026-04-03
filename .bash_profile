@@ -1,2 +1,4 @@
 #!/bin/sh
-. ~/dotfiles/bash_startup
+echo "~/.bash_profile"
+# . ~/dotfiles/bash_startup
+. ~/dotfiles/common_login

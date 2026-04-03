@@ -1,3 +1,7 @@
 Contains .dotfiles which are hidden by default. 
 
 Expected to be checked out to ~/dotfiles.  Run ./createSymlinks.sh from dotfiles directory to create symlinks for all the dotfiles, e.g. ~/.foo -> dotfiles/.foo
+
+Source ~/dotfiles/common_login from ~/.bash_profile.
+
+Source ~/dotfiles/common_interactive from ~/.bashrc

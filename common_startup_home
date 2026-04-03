@@ -1,4 +1,0 @@
-#!/bin/sh -x
-
-# Home aliases
-alias w='pushd ~/wc'

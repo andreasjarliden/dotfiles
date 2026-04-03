@@ -1,2 +1,4 @@
+#!/bin/bash
 echo common_login_elekta
 export SVN=https://repo.sr.elekta.se/svn
+export ESPTESTDATA=~/workspace/esptestdata
