@@ -1,7 +1,5 @@
 #!/bin/sh
 
-echo "Common interactive"
-
 function parse_git_branch {
     git rev-parse --git-dir > /dev/null 2>&1
     if [ $? -eq 0 ]; then
@@ -92,8 +90,6 @@ alias resource="source ~/dotfiles/common_startup"
 
 export SVN_MERGE=~/dotfiles/svn_vimdiff_wrapper.sh
 
-# Source host specific startup file
-. ~/dotfiles/common_interactive_`hostname`
 . ~/dotfiles/.githelpers
 
 # Determine home/work based on domain
@@ -105,12 +101,12 @@ if [[ "$DN" == *.home ]]; then
 fi
 
 # Source elekta startup file
-if [[ "$DN" == *.elekta ]]; then
+if [[ "$DN" == *.elekta.com ]]; then
   . ~/dotfiles/common_interactive_elekta
 fi
 
 # Source host specific startup file
-HOST_INTERACTIVE="$HOME/dotfiles/common_interactive_`hostname`"
-if [ -f "$HOST_INTERACTIVE" ]; then
+HOST_INTERACTIVE="$HOME/dotfiles/common_interactive_$(hostname)"
+if [[ -f "$HOST_INTERACTIVE" ]]; then
   . "$HOST_INTERACTIVE"
 fi

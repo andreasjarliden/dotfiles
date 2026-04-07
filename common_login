@@ -13,7 +13,7 @@ if [[ "$DN" == *.home ]]; then
 fi
 
 # Source elekta startup file
-if [[ "$DN" == *.elekta ]]; then
+if [[ "$DN" == *.elekta.com ]]; then
   . ~/dotfiles/common_login_elekta
 fi
 
