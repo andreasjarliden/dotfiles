@@ -24,6 +24,7 @@ return {
         "bash",
         "lua",
         "vim",
+        "query",
         "python",
         "gitignore",
         "c",
